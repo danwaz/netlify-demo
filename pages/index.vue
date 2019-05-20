@@ -3,11 +3,25 @@
     <div>
       <logo />
       <h1 class="title">
-        Hello World
+        {{ content.title }}
       </h1>
+      <h2 class="subtitle">{{ content.intro }}</h2>
+      <img :src="content.photo" />
     </div>
   </section>
 </template>
+
+<script>
+import content from '@/content/home.json'
+
+export default {
+  data() {
+    return {
+      content: content
+    }
+  }
+}
+</script>
 
 <style>
 .container {
@@ -39,5 +53,10 @@
 
 .links {
   padding-top: 15px;
+}
+
+img {
+  max-width: 800px;
+  margin: 0 auto;
 }
 </style>
