@@ -1,16 +1,20 @@
 <template>
   <section class="container">
     <div>
-      <p>{{ page }}</p>
+      <h1 class="title">
+        {{ content.title }}
+      </h1>
+      <div v-html="$md.render(content.body)"></div>
+      <img :src="content.thumbnail" />
     </div>
   </section>
 </template>
 
 <script>
 export default {
-  asyncData: async ({ app, route, payload }) => {
+  asyncData: async ({ route }) => {
     return {
-      page: (await app.$content('/pages').get(route.path)) || payload
+      content: await require(`@/content${route.path}.json`)
     }
   }
 }
