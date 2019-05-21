@@ -32,6 +32,7 @@ export default {
    ** Customize the progress-bar color
    */
   loading: { color: '#fff' },
+  transition: { mode: "in-out"},
 
   /*
    ** Global CSS
@@ -49,7 +50,6 @@ export default {
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
-    '@nuxtjs/pwa',
     '@nuxtjs/markdownit'
   ],
 
