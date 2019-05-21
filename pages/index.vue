@@ -7,6 +7,14 @@
       </h1>
       <h2 class="subtitle">{{ content.intro }}</h2>
       <img :src="content.photo" />
+
+      <h3>All Posts</h3>
+      <ul>
+        <li v-for="post in allBlogPosts" :key="post._path">
+          <img :src="post.image" />
+          <nuxt-link :to="post._path">{{ post.title }}</nuxt-link>
+        </li>
+      </ul>
     </div>
   </section>
 </template>
@@ -18,6 +26,12 @@ export default {
   data() {
     return {
       content: content
+    }
+  },
+
+  computed: {
+    allBlogPosts() {
+      return this.$store.state.blogPosts
     }
   }
 }
